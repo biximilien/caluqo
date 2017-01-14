@@ -47,5 +47,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Foreman
+gem 'foreman'
+
 # Calendar
 gem 'simple_calendar', '~> 2.0'
+
+# Facebook API
+gem 'koala', '~> 2.2'
+
+# REST Client
+gem 'rest-client'
