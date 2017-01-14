@@ -1,13 +1,9 @@
-<div>
-  <%= @output %>
-</div>
-
 <%= month_calendar(events: @events, attribute: :started_at, attribute_end: :ended_at) do |date, events| %>
   <strong><%= date.day %></strong>
 
   <% events.each do |event| %>
     <div class="event">
-      <small><%= event.title %></small>
+      <small><a href="https://facebook.com/events/<%= event.facebook_id %>"><%= event.title %></a></small>
     </div>
   <% end %>
 <% end %>
