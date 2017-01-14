@@ -1,3 +1,7 @@
+<div>
+  <%= @output %>
+</div>
+
 <%= month_calendar(events: @events, attribute: :started_at, attribute_end: :ended_at) do |date, events| %>
   <strong><%= date.day %></strong>
 
