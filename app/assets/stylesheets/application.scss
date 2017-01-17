@@ -1,15 +1,12 @@
 @import "simple_calendar";
 
-html, body {
+body {
   width: 100%;
-  height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: red;
 }
 
 .simple-calendar {
@@ -17,7 +14,6 @@ body {
   padding: 0;
 
   width: 100%;
-  height: 100%;
 
   .calendar-heading {
     width: 100%;
@@ -26,24 +22,9 @@ body {
 
   table {
     width: 100%;
-    height: calc(100% - 20px);
 
-    background-color: #dadada;
-
-    td {
-      background-color: #aaaaaa;
-    }
-
-    tr:nth-child(odd) {
-      td:nth-child(2n+1) {
-        opacity: 0.5;
-      }
-    }
-
-    tr:nth-child(even) {
-      td:nth-child(2n) {
-        opacity: 0.5;
-      }
+    td.prev-month, td.next-month > strong {
+      color: #888 !important;
     }
   }
 }
