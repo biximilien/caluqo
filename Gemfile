@@ -63,3 +63,6 @@ gem 'rest-client'
 
 # Localization
 gem 'rails-i18n', '~> 5.0.0'
+
+# Bootstrap
+gem 'bootstrap-sass'

@@ -1,9 +1,23 @@
-<%= month_calendar(events: @events, attribute: :started_at, attribute_end: :ended_at) do |date, events| %>
-  <strong><%= date.day %></strong>
-
-  <% events.each do |event| %>
-    <div class="event">
-      <small><a href="https://facebook.com/events/<%= event.facebook_id %>"><%= event.title %></a></small>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <ul>
+        <% @pages.each do |page| %>
+          <li><input type="checkbox"><%= page.name %></li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
-<% end %>
+
+    <div class="col-lg-9">
+      <%= month_calendar(events: @events, attribute: :started_at, attribute_end: :ended_at) do |date, events| %>
+        <strong><%= date.day %></strong>
+
+        <% events.each do |event| %>
+          <div class="event">
+            <small><a href="https://facebook.com/events/<%= event.facebook_id %>"><%= event.title %></a></small>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
