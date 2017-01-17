@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'root#index'
+  root 'events#index'
 
-  get 'facebook/callback', to: 'root#facebook'
+  resources :events, path: '/'
 end
