@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3">
-      <ul class="pages">
-        <% @pages.each do |page| %>
-          <li>
-            <label class="checkbox"><input type="checkbox"></input><%= page.name %></label>
-          </li>
-        <% end %>
-      </ul>
+      <%= form_tag root_path, method: :get do %>
+        <ul class="pages">
+          <% @pages.each do |page| %>
+            <li>
+              <label class="checkbox"><input type="checkbox"></input><%= page.name %></label>
+            </li>
+          <% end %>
+        </ul>
+        <%= submit_tag 'envoyer' %>
+      <% end %>
     </div>
 
     <div class="col-lg-9">
