@@ -2,12 +2,12 @@ require 'rest-client'
 require 'json'
 
 namespace :events do
-  desc "TODO"
+  desc "creates events from facebook for all pages"
   task create_from_facebook: :environment do
     access_token = ENV['FACEBOOK_APP_ACCESS_TOKEN']
 
     Page.all.each do |page|
-      request = RestClient.get "https://graph.facebook.com/v2.8/#{page.page_id}?fields=events{start_time,end_time,description,name,id}&access_token=#{access_token}"
+      request = RestClient.get "https://graph.facebook.com/v2.8/#{page.facebook_id}?fields=events{start_time,end_time,description,name,id}&access_token=#{access_token}"
       json = JSON.parse(request)
       json['events']['data'].each do |event|
         if !Event.exists?(facebook_id: event['id'])
