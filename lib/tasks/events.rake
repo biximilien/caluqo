@@ -11,7 +11,13 @@ namespace :events do
       json = JSON.parse(request)
       json['events']['data'].each do |event|
         if !Event.exists?(facebook_id: event['id'])
-          Event.create!(facebook_id: event['id'], title: event['name'], description: event['description'], started_at: event['start_time'], ended_at: event['end_time'])
+          Event.create!(
+            facebook_id: event['id'],
+            page_id: page.id,
+            title: event['name'],
+            description: event['description'],
+            started_at: event['start_time'],
+            ended_at: event['end_time'])
         end
       end
     end

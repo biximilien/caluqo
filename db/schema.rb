@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117041002) do
+ActiveRecord::Schema.define(version: 20170117041553) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20170117041002) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.bigint   "facebook_id"
+    t.integer  "page_id"
     t.index ["facebook_id"], name: "index_events_on_facebook_id", unique: true
+    t.index ["page_id"], name: "index_events_on_page_id"
   end
 
   create_table "pages", force: :cascade do |t|
