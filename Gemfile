@@ -60,3 +60,6 @@ gem 'koala', '~> 2.2'
 
 # REST Client
 gem 'rest-client'
+
+# Localization
+gem 'rails-i18n', '~> 5.0.0'
