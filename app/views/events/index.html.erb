@@ -5,7 +5,10 @@
         <ul class="pages">
           <% @pages.each do |page| %>
             <li>
-              <label class="checkbox"><input type="checkbox"></input><%= page.name %></label>
+              <label id="page-<%= page.id%>-checkbox" class="checkbox">
+                <%= check_box_tag 'page_ids[]', page.id, true %>
+                <%= page.name %>
+              </label>
             </li>
           <% end %>
         </ul>
