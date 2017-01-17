@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
 
-  before_action :sanitize_filters, only: :index
+  before_action :page_ids, only: :index
 
   def index
     @events = Event.all
-    @pages = Page.all.order(name: :asc)
+    @pages = Page.where.not(id: page_ids).order(name: :asc)
   end
 
   def facebook
@@ -12,8 +12,8 @@ class EventsController < ApplicationController
 
   private
 
-    def sanitize_filters
-      params.slice(:filter)
+    def page_ids
+      params.slice[:page_ids]
     end
 
 end
