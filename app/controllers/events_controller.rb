@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   protected
 
     def default_url_options
-      { page_ids: page_ids }.merge(super)
+      super.merge page_ids: page_ids
     end
 
   private
