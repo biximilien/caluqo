@@ -9,9 +9,6 @@ class EventsController < ApplicationController
     @pages = Page.order(name: :asc)
   end
 
-  def facebook
-  end
-
   protected
 
     def default_url_options
