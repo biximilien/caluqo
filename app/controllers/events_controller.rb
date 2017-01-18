@@ -3,8 +3,8 @@ class EventsController < ApplicationController
   before_action :page_ids, only: :index
 
   def index
-    @events = Event.all
-    @pages = Page.where.not(id: page_ids).order(name: :asc)
+    @events = Event.where(page_id: page_ids)
+    @pages = Page.order(name: :asc)
   end
 
   def facebook
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   private
 
     def page_ids
-      params.slice[:page_ids]
+      params[:page_ids]
     end
 
 end

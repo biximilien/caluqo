@@ -6,7 +6,7 @@
           <% @pages.each do |page| %>
             <li>
               <label id="page-<%= page.id%>-checkbox" class="checkbox">
-                <%= check_box_tag 'page_ids[]', page.id %>
+                <%= check_box_tag 'page_ids[]', page.id, true %>
                 <%= page.name %>
               </label>
             </li>
