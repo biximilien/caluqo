@@ -11,7 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('click', 'input[type=checkbox]', function() {
+  $('input[type=submit]').click();
+});
