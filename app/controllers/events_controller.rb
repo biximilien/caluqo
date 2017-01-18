@@ -9,13 +9,10 @@ class EventsController < ApplicationController
     @pages = Page.order(name: :asc)
   end
 
-  def facebook
-  end
-
   protected
 
     def default_url_options
-      { page_ids: page_ids }.merge(super)
+      super.merge page_ids: page_ids
     end
 
   private
