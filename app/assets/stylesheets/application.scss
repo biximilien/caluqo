@@ -34,11 +34,15 @@ body {
 
 .pages {
   list-style-type: none;
-  padding: 0;
+  // padding: 0;
 }
 
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.page-header {
+  text-align: center;
 }
