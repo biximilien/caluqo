@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
     def checked?(id)
       return false if id.nil?
-      return true if page_ids.include? id.to_s
+      return true if page_ids.include? id.to_s || first_visit?
       false
     end
 
