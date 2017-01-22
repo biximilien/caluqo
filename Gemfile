@@ -41,8 +41,11 @@ group :development, :test do
   # Pry console
   gem 'pry-rails'
 
-  # RSpec
+  # RSpec test suite
   gem 'rspec-rails', '~> 3.5'
+
+  # Shoulda Matchers test matchers
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
@@ -62,9 +65,6 @@ gem 'foreman'
 
 # Calendar
 gem 'simple_calendar', '~> 2.0'
-
-# Facebook API
-gem 'koala', '~> 2.2'
 
 # REST Client
 gem 'rest-client'
