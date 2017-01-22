@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 
 module Facebook
-  class Page
+  class User
     attr_accessor :facebook_id
 
     def initialize(facebook_id)
@@ -11,7 +11,7 @@ module Facebook
 
     def import_all_events
       json = JSON.parse(RestClient.get(request))
-      json['events']['data'].each do |event|
+      json['user-events']['data'].each do |event|
         if !::Event.exists?(facebook_id: event['id'])
           ::Event.create!(
             facebook_id: event['id'],
@@ -22,10 +22,6 @@ module Facebook
             ended_at: event['end_time'])
         end
       end
-    end
-
-    def import_all_events_shared_by
-      
     end
 
     private
@@ -51,7 +47,7 @@ module Facebook
       end
 
       def query
-        "fields=events{#{attributes}}"
+        "fields=user-events{#{attributes}}"
       end
 
       def attributes
