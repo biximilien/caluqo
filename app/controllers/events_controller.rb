@@ -11,6 +11,11 @@ class EventsController < ApplicationController
     @pages = Page.order(name: :asc)
   end
 
+  def list
+    @events = Event.where(page_id: page_ids)
+    @pages = Page.order(name: :asc)
+  end
+
   protected
 
     def default_url_options
