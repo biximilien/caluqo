@@ -46,6 +46,17 @@ body {
   }
 }
 
+#events-list {
+  list-style-type: none;
+  li a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
 .center {
   display: block;
   margin-left: auto;

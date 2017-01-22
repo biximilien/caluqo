@@ -4,7 +4,7 @@ class Page < ApplicationRecord
 
   attr_accessor :facebook_page
 
-  after_initialize -> { self.facebook_page = Facebook::Page.new(self.facebook_id) }
+  after_initialize -> { self.facebook_page = Facebook::Page.new(self.facebook_id, self.id) }
 
   validates :facebook_id, uniqueness: true
 
