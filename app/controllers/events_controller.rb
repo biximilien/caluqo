@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def list
-    @events = Event.where(page_id: page_ids)
+    @events = Event.where(page_id: page_ids).order(started_at: :desc)
     @pages = Page.order(name: :asc)
   end
 

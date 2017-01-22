@@ -1,0 +1,19 @@
+<div id="pages-panel" class="panel panel-default">
+  <div class="panel-heading"><strong class="center">Pages</strong></div>
+  <div class="panel-body">
+    <%= form_tag current_path, method: :get do %>
+      <ul class="pages">
+        <% @pages.each do |page| %>
+          <li>
+            <label id="page-<%= page.id%>-checkbox" class="checkbox">
+              <%= check_box_tag 'page_ids[]', page.id, checked?(page.id) %>
+              <%= page.name %>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= submit_tag 'envoyer', class: 'hide' %>
+    <% end %>
+  </div>
+</div>
