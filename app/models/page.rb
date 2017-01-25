@@ -10,6 +10,6 @@ class Page < ApplicationRecord
 
   has_many :events
 
-  delegate :import_all_events, to: :facebook_page
+  delegate :import_all_events, :update_all_events, to: :facebook_page
 
 end

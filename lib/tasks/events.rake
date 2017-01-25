@@ -7,4 +7,12 @@ namespace :events do
     end
   end
 
+  desc "updates events from facebook for all pages"
+  task update_from_facebook: :environment do
+
+    Page.all.each do |page|
+      page.update_all_events
+    end
+  end
+
 end
