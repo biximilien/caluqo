@@ -5,8 +5,9 @@ module Facebook
   class Page
     attr_accessor :facebook_id
 
-    def initialize(facebook_id)
+    def initialize(facebook_id, id)
       @facebook_id = facebook_id
+      @id = id
     end
 
     def import_all_events
@@ -15,7 +16,7 @@ module Facebook
         if !::Event.exists?(facebook_id: event['id'])
           ::Event.create!(
             facebook_id: event['id'],
-            page_id: page.id,
+            page_id: @id,
             title: event['name'],
             description: event['description'],
             started_at: event['start_time'],
@@ -25,7 +26,7 @@ module Facebook
     end
 
     def import_all_events_shared_by
-      
+
     end
 
     private
