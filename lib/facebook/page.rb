@@ -29,6 +29,21 @@ module Facebook
 
     end
 
+    def update_all_events
+      json = JSON.parse(RestClient.get(request))
+      json['events']['data'].each do |event|
+        if ::Event.exists?(facebook_id: event['id'])
+          event = ::Event.find_by(facebook_id: event['id'])
+          attributes = {}
+          attributes[:title] = event['name'] if event.title != event['name']
+          attributes[:description] = event['description'] if event.description != event['description']
+          attributes[:started_at] = event['start_time'] if event.started_at != event['start_time']
+          attributes[:ended_at] = event['end_time'] if event.ended_at != event['end_time']
+          event.update!(attributes) unless attributes.empty?
+        end
+      end
+    end
+
     private
 
       def access_token
