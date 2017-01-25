@@ -2,9 +2,7 @@ class EventsController < ApplicationController
 
   before_action :page_ids, only: :index
 
-  helper_method :checked?, :first_visit?
-
-  after_action :visited
+  helper_method :checked?
 
   def index
     @events = Event.where(page_id: page_ids)
@@ -24,23 +22,13 @@ class EventsController < ApplicationController
 
   private
 
-    def first_visit?
-      return false if cookies[:visited?]
-      return true
-    end
-
-    def visited
-      cookies[:visited?] = true
-    end
-
     def page_ids
-      return Page.pluck(:id) if first_visit?
       params[:page_ids] || []
     end
 
     def checked?(id)
       return false if id.nil?
-      return true if page_ids.include? id.to_s || first_visit?
+      return true if page_ids.include? id.to_s
       false
     end
 
