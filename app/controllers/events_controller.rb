@@ -14,6 +14,12 @@ class EventsController < ApplicationController
     @pages = Page.order(name: :asc)
   end
 
+  def embed
+    @events = Event.where(page_id: page_ids).order(started_at: :desc)
+    @pages = Page.order(name: :asc)
+    render :embed, layout: 'embed'
+  end
+
   protected
 
     def default_url_options
