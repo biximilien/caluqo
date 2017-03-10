@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117041553) do
+ActiveRecord::Schema.define(version: 20170310232225) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20170117041553) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "name"
-    t.integer  "facebook_id", limit: 8
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "facebook_id",  limit: 8
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "abbreviation"
     t.index ["facebook_id"], name: "index_pages_on_facebook_id", unique: true
   end
 
