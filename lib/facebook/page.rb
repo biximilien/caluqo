@@ -25,9 +25,20 @@ module Facebook
       end
     end
 
-    def import_all_events_shared_by
-
-    end
+    # def import_all_events_shared_by
+    #   json = JSON.parse(RestClient.get(request))
+    #   json['events']['data'].each do |event|
+    #     if !::Event.exists?(facebook_id: event['id'])
+    #       ::Event.create!(
+    #         facebook_id: event['id'],
+    #         page_id: @id,
+    #         title: event['name'],
+    #         description: event['description'],
+    #         started_at: event['start_time'],
+    #         ended_at: event['end_time'])
+    #     end
+    #   end
+    # end
 
     def update_all_events
       json = JSON.parse(RestClient.get(request))
