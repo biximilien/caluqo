@@ -29,7 +29,12 @@ class EventsController < ApplicationController
   private
 
     def page_ids
-      params[:page_ids] || []
+      if cookies.permanent[:first_visit?].nil?
+        cookies.permanent[:first_visit?] = false
+        params[:page_ids] = Page.all.collect(&:id).map(&:to_s)
+      else
+        params[:page_ids] || []
+      end
     end
 
     def checked?(id)
