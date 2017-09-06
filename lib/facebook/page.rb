@@ -59,7 +59,7 @@ module Facebook
       end
 
       def version
-        'v2.8'
+        'v2.12'
       end
 
       def request
