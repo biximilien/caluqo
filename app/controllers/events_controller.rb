@@ -5,13 +5,15 @@ class EventsController < ApplicationController
   helper_method :checked?
 
   def index
-    @events = Event.where(page_id: page_ids)
-    @pages = Page.order(name: :asc)
+    @events = Event.month(month_param)
+  end
+
+  def show
+    @events = Event.day(params[:day])
   end
 
   def list
-    @events = Event.where(page_id: page_ids).order(started_at: :desc)
-    @pages = Page.order(name: :asc)
+    @events = Event.month(params[:month]).order(started_at: :desc)
   end
 
   def embed
@@ -20,13 +22,13 @@ class EventsController < ApplicationController
     render :embed, layout: 'embed'
   end
 
-  protected
-
-    def default_url_options
-      super.merge page_ids: page_ids
-    end
-
   private
+
+    def month_param
+      m = params[:month]
+      return Date.today.strftime("%B").downcase if m.nil? || m.empty?
+      m.downcase
+    end
 
     def page_ids
       params[:page_ids] || []

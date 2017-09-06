@@ -1,10 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
-      <%= render 'shared/pages' %>
-    </div>
-
-    <div class="col-lg-9">
+    <div class="col-md-12 col-lg-12 col-xl-12">
       <h1 class="page-header">Calendrier Étudiant</h1>
       <%= month_calendar(events: @events, attribute: :started_at, attribute_end: :ended_at) do |date, events| %>
         <strong><%= date.day %></strong>
