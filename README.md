@@ -1,24 +1,9 @@
-# README
+# CALUQO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a calendar web application I made during my time at Université du Québec
+en Outaouais (UQO) to group all events happening on campus in a single calendar.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It works by keeping track of the University's, local businesses, unions',
+committees', or groups' Facebook Pages and parse their upcoming events via the
+Facebook Graph API. All events were aggregated into a customizable calendar the
+user can choose which events he wants to see.
